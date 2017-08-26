@@ -243,7 +243,7 @@ export default class ProductDetail extends React.Component {
     console.log("$PARANStableList", tableList);
     if (tableList.length > 0) {
       tableContent = tableList.map((item, index) =>
-        <tr>
+        <tr key={`tr-${index}`}>
           <td>
             {item.name}
           </td>
@@ -257,7 +257,7 @@ export default class ProductDetail extends React.Component {
       );
       console.log("$PARANStableContent", tableContent);
       tableContent.unshift(
-        <tr>
+        <tr key="head">
           <th>名称</th>
           <th>Name</th>
           <th>
@@ -303,14 +303,13 @@ export default class ProductDetail extends React.Component {
                     <span className="circle" />产品优势
                   </p>
                   <p>
-                    {tableDetList.advantage}
-                    <span className="inlineP">1. 电瓶式洗地机，机型小，活动范围不受限，操作方便。</span>
-                    <span className="inlineP">
-                      2. 按钮开关设计，配有红绿色指示灯，象形功能图案，使用简单，培训、维护成本低。
-                    </span>
-                    <span className="inlineP">
-                      2. 按钮开关设计，配有红绿色指示灯，象形功能图案，使用简单，培训、维护成本低。
-                    </span>
+                    {tableDetList.advantage && tableDetList.advantage.length > 0
+                      ? tableDetList.advantage.map((item, index) =>
+                          <span key={`advantage-${index}`} className="inlineP">
+                            {index + 1}、{item}
+                          </span>
+                        )
+                      : null}
                   </p>
                 </div>
               </TabPane>
@@ -341,7 +340,6 @@ export default class ProductDetail extends React.Component {
                   : null}
               </TabPane>
               <TabPane tab="应用案例" key="4">
-                <div className="productDetIntCon">应用案例</div>
                 <div className="productDetIntCon">
                   <video
                     width="100%"
