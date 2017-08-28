@@ -52,7 +52,7 @@ export default class ProductCenter extends React.Component {
     baseReq(url)
       .then(res => {
         this.setState({
-          dataList: res
+          dataList: res.data
         });
       })
       .then(() => {

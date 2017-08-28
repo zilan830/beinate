@@ -15,12 +15,15 @@ const dataHoc = ({ url, data }, mapResponseToProps) => WrapperComponent => {
     componentWillMount() {
       // request
       baseReq(url, data)
-        .then(res => mapResponseToProps(res))
-        .then(propsAddtion => this.setState({ propsAddtion }))
+        .then(res => {
+          return mapResponseToProps(res.data);
+        })
+        .then(propsAddtion => {
+          this.setState({ propsAddtion });
+        })
         .catch(error => console.log(error));
     }
     render() {
-      console.log("propsaddtion", this.state.propsAddtion);
       const props = Object.assign({}, this.props, this.state.propsAddtion);
       return <WrapperComponent {...props} />;
     }

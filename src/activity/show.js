@@ -11,8 +11,7 @@ export default class News extends React.Component {
     this.state = {
       newInfo: [],
       list: true,
-      data: [],
-      count: 0
+      data: []
     };
   }
 
@@ -33,10 +32,8 @@ export default class News extends React.Component {
     if (type === "News") {
       baseReq(`/news/newsDetail/${id}`)
         .then(res => {
-          console.log("$PARANSres", res);
           this.setState({
-            data: res.data,
-            count: res.count
+            data: res.data
           });
         })
         .catch(err => {
@@ -53,7 +50,6 @@ export default class News extends React.Component {
     if (type === "News") {
       baseReq(`/news/newsList/${currentPage * 12}/12`)
         .then(res => {
-          console.log("$PARANSres", res);
           this.setState({
             newInfo: res.data
           });
@@ -72,8 +68,7 @@ export default class News extends React.Component {
 
   render() {
     const { type } = this.props;
-    const { newInfo, list, count } = this.state;
-    console.log("$PARANSnewInfo", newInfo);
+    const { newInfo, list } = this.state;
     let content = [];
     const imgContent = [];
     newInfo.map((item, index) => {
@@ -105,7 +100,7 @@ export default class News extends React.Component {
               <Col span={12} className="mt10">
                 <Pagination
                   size="small"
-                  total={count}
+                  total={100}
                   onChange={(page, pageSize) => {
                     this.onChange(page, pageSize);
                   }}

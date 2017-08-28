@@ -144,7 +144,7 @@ export default class ProductDetail extends React.Component {
     baseReq(`/goods/goodsInfo/${catId}`)
       .then(res => {
         this.setState({
-          dataList: res
+          dataList: res.data
         });
       })
       .then(() => {
@@ -173,7 +173,7 @@ export default class ProductDetail extends React.Component {
       .then(res => {
         console.log("$PARANSres", res);
         this.setState({
-          tableList: res
+          tableList: res.data
         });
       })
       .catch(err => {

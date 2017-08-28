@@ -39,7 +39,7 @@ export default class Home extends React.Component {
     baseReq("/news/newsList/0/3")
       .then(res => {
         this.setState({
-          newInfo: res
+          newInfo: res.data
         });
       })
       .catch(err => {
@@ -48,7 +48,7 @@ export default class Home extends React.Component {
     baseReq("/cases/casesList/0/0/1")
       .then(res => {
         this.setState({
-          caseInfo: res
+          caseInfo: res.data
         });
       })
       .catch(err => {

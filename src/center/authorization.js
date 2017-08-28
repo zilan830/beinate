@@ -12,7 +12,6 @@ export default class Authorization extends React.Component {
   }
 
   render() {
-    console.log("$PARANSdata", this.props.data);
     const data = this.props.data || [];
     const content = data.map((item, index) => {
       const list = [];

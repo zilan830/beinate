@@ -10,7 +10,8 @@ export default (url, data) => {
   })
     .then(res => {
       if (res.data.code === 10000) {
-        return res.data.data;
+        console.log("$PARANSres.data", res);
+        return res.data;
       }
     })
     .catch(err => {

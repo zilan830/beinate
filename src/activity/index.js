@@ -50,7 +50,6 @@ export default class Activity extends React.Component {
             span={span}
             change={this.onClick}
           />
-          {}
           <News list={true} type={currentComponent} />
         </div>
       </div>
