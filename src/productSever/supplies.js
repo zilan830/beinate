@@ -7,6 +7,8 @@ import supplies4 from "web_modules/images/supplies4.jpg";
 import supplies5 from "web_modules/images/supplies5.jpg";
 import supplies6 from "web_modules/images/supplies6.jpg";
 import supplies7 from "web_modules/images/supplies7.jpg";
+import supplies8 from "web_modules/images/supplies8.jpg";
+import supplies9 from "web_modules/images/supplies9.jpg";
 import bj1 from "web_modules/images/bj1.png";
 import bj2 from "web_modules/images/bj2.png";
 import bj3 from "web_modules/images/bj3.png";
@@ -113,26 +115,81 @@ const column = [
 //洗地机
 const washColumn = [
   {
+    name: "洗地刷",
+    imgPath: xd1,
+    key: "xd",
+    selected: true
+  },
+  {
     name: "百洁垫",
     imgPath: supplies1,
-    key: "bj",
-    selected: true
+    key: "bj"
+  },
+  {
+    name: "针盘",
+    imgPath: zp4,
+    key: "zp"
+  },
+  {
+    name: "刷盘电机",
+    imgPath: sp1,
+    key: "sp"
+  },
+  {
+    name: "吸水电机",
+    imgPath: xs1,
+    key: "xs"
+  },
+  {
+    name: "胶条",
+    imgPath: jt1,
+    key: "jt"
   }
 ];
 //扫地机
 const rubColumn = [
   {
-    name: "刷盘电机",
-    imgPath: supplies2,
-    key: "sp"
+    name: "边刷",
+    imgPath: supplies8,
+    key: "bs"
+  },
+  {
+    name: "滚刷",
+    imgPath: supplies9,
+    key: "gs"
   }
 ];
 //擦地机
 const sweepColumn = [
   {
-    name: "洗地刷",
-    imgPath: supplies3,
-    key: "xd"
+    name: "手套柄",
+    imgPath: sb1,
+    key: "sb"
+  },
+  {
+    name: "缓冲器",
+    imgPath: hc1,
+    key: "hc"
+  },
+  {
+    name: "轮子",
+    imgPath: lz1,
+    key: "lz"
+  },
+  {
+    name: "地刷",
+    imgPath: ds1,
+    key: "ds"
+  },
+  {
+    name: "针盘",
+    imgPath: zp4,
+    key: "cdzp"
+  },
+  {
+    name: "毯刷",
+    imgPath: ts1,
+    key: "ts"
   }
 ];
 
@@ -345,7 +402,9 @@ const zpColumn = [
     type: "240071",
     size: "20寸",
     auto: "Ranger 510B、Smart 510B、Clever 510B、Clever 510E、Clever 510BT"
-  },
+  }
+];
+const cdzpColumn = [
   {
     photo: zp6,
     type: "240041",
@@ -373,19 +432,19 @@ const hcColumn = [
     auto: "PX-170N、PX-170DS、PX-170、PX-170G"
   },
   {
-    photo: hc1,
+    photo: hc2,
     type: "250061",
     size: "17寸",
     auto: "SPX-170N、SPX-170W、SPX-170DS、SPX-170"
   },
   {
-    photo: hc1,
+    photo: hc3,
     type: "250021",
     size: "20寸",
     auto: "PX-200N、PX-200"
   },
   {
-    photo: hc1,
+    photo: hc4,
     type: "250081",
     size: "21寸",
     auto: "HPX-1500"
@@ -428,6 +487,20 @@ const lzColumn = [
       "PX-170N、PX-200、PX-170DS、PX-170、PX-170G、PX-200、PX-170G、SPX-170N、SPX-170W、SPX-170DS、SPX-170、HPX-1500"
   }
 ];
+const bsColumn = [
+  {
+    photo: supplies8,
+    type: "211411",
+    auto: "Tornado 700BD、Tornado 700BS"
+  }
+];
+const gsColumn = [
+  {
+    photo: supplies9,
+    type: "242101",
+    auto: "Tornado 700BD、Tornado 700BS"
+  }
+];
 
 export default class Supplies extends React.Component {
   constructor(props) {
@@ -462,12 +535,12 @@ export default class Supplies extends React.Component {
         break;
       case "SuppliesRub":
         this.setState({
-          column: rubColumn
+          column: sweepColumn
         });
         break;
       case "SuppliesSweep":
         this.setState({
-          column: sweepColumn
+          column: rubColumn
         });
         break;
     }
@@ -519,6 +592,15 @@ export default class Supplies extends React.Component {
         break;
       case "lz":
         contentColumn = lzColumn;
+        break;
+      case "bs":
+        contentColumn = bsColumn;
+        break;
+      case "gs":
+        contentColumn = gsColumn;
+        break;
+      case "cdzp":
+        contentColumn = cdzpColumn;
         break;
       default:
         break;
