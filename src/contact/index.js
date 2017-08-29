@@ -49,7 +49,7 @@ export default class Contract extends React.Component {
             <Col span={8}>
               <div className="contact01" />
             </Col>
-            <Col span={7} className="pl30">
+            <Col span={8} className="pl30">
               <p className="font14 textColorGrey line20">地址：江苏昆山市千灯镇季广北路119号</p>
               <p className="font14 textColorGrey line20 mb12">
                 Address: No.119 North Jiguang Road, Qiandeng Town, Kunshan City,
@@ -61,19 +61,26 @@ export default class Contract extends React.Component {
               <p className="font14 textColorGrey line20">
                 传真 (Fax)：86 0512 57463631
               </p>
-              <p className="font14 textColorGrey line20">
-                网址 (web)：http://www.bntfloorcare.com
-              </p>
-              <p className="font14 textColorGrey line20 pl80">
-                http://bntfloorcare.1688.com
-              </p>
+              <div
+                className="font14 textColorGrey line20"
+                style={{ display: "flex" }}
+              >
+                <span style={{ display: "inline-block" }}>网址 (web)：</span>
+                <div style={{ display: "inline-block" }}>
+                  <p>http://www.bntfloorcare.com</p>
+                  <p>http://bntfloorcare.1688.com</p>
+                </div>
+              </div>
+              {/*<p className="font14 textColorGrey line20 pl80">*/}
+              {/*http://bntfloorcare.1688.com*/}
+              {/*</p>*/}
               <p className="font14 textColorGrey line20 mb12">
                 邮箱 (e-mail)：bnt@bntfloorcare.com
               </p>
               <p className="font14 textColorGrey line20">南通工厂:南通邦纳特清洁设备有限公司</p>
               <p className="font14 textColorGrey line20">地址:南通滨海园区启动区北区</p>
             </Col>
-            <Col span={7} offset={2}>
+            <Col span={7} offset={1}>
               <div className="smallLogoCon">
                 <div className="smallLogo">
                   {/*<img src={contact03} />*/}

@@ -109,6 +109,32 @@ const column = [
     key: "lz"
   }
 ];
+//需要填写的耗材名称，同上Column
+//洗地机
+const washColumn = [
+  {
+    name: "百洁垫",
+    imgPath: supplies1,
+    key: "bj",
+    selected: true
+  }
+];
+//扫地机
+const rubColumn = [
+  {
+    name: "刷盘电机",
+    imgPath: supplies2,
+    key: "sp"
+  }
+];
+//擦地机
+const sweepColumn = [
+  {
+    name: "洗地刷",
+    imgPath: supplies3,
+    key: "xd"
+  }
+];
 
 const bjColumn = [
   {
@@ -407,12 +433,45 @@ export default class Supplies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      column,
+      column: washColumn,
       contentColumn: bjColumn
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { type } = this.props;
+    console.log("$PARANSdididdd", type);
+    this.setColumn(type);
+  }
+
+  componentWillReceiveProps(props) {
+    console.log("$PARANSprops", props);
+    if (props.type !== this.props.type) {
+      const type = props.type;
+      this.setColumn(type);
+    }
+  }
+
+  setColumn = type => {
+    console.log("$PARANS,......", type);
+    switch (type) {
+      case "SuppliesWash":
+        this.setState({
+          column: washColumn
+        });
+        break;
+      case "SuppliesRub":
+        this.setState({
+          column: rubColumn
+        });
+        break;
+      case "SuppliesSweep":
+        this.setState({
+          column: sweepColumn
+        });
+        break;
+    }
+  };
 
   handleOnClick = key => {
     const { column } = this.state;
@@ -474,6 +533,7 @@ export default class Supplies extends React.Component {
   render() {
     const { type } = this.props;
     const { column, contentColumn } = this.state;
+    console.log("$PARANScolumn", column);
     let name = "";
     switch (type) {
       case "SuppliesWash":
@@ -508,7 +568,7 @@ export default class Supplies extends React.Component {
       return (
         <tr>
           <td>
-            <img src={item.photo} />
+            <img style={{ width: "50px" }} src={item.photo} />
           </td>
           <td>
             {item.type}
