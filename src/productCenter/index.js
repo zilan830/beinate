@@ -215,7 +215,7 @@ export default class ProductCenter extends React.Component {
                 return (
                   <Col key={`i.goodsName${ind}`} span={12}>
                     <Link
-                      to={`/productCenterDetail/catId=(${i.catId})index=(${ind})${itemName}`}
+                      to={`/productCenterDetail/catId=${i.catId}index=${ind}${itemName}`}
                     >
                       <div className="productItemImgCon">
                         <div className="productItemImg">
