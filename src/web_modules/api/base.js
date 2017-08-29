@@ -10,7 +10,6 @@ export default (url, data) => {
   })
     .then(res => {
       if (res.data.code === 10000) {
-        console.log("$PARANSres.data", res);
         return res.data;
       }
     })

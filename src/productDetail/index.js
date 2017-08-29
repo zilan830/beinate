@@ -97,12 +97,12 @@ export default class ProductDetail extends React.Component {
   }
 
   componentDidMount() {
-    const reg = /[\d]+/g;
+    const reg = /=[0-9]+/g;
+    const reg2 = /[\d]+/g;
     const href = window.location.href;
-    console.log("$PARANShhhhhhhhh", href.match(reg));
     //要改
-    const type = href.match(reg)[1];
-    const ind = href.match(reg)[2];
+    const type = href.match(reg)[0].match(reg2)[0];
+    const ind = href.match(reg)[1].match(reg2)[0];
     if (href.indexOf("洗地机")) {
       this.renderSelect(0, type);
     } else if (href.indexOf("扫地机")) {
@@ -165,13 +165,9 @@ export default class ProductDetail extends React.Component {
   getTable = () => {
     const { dataList, ind } = this.state;
     const index = parseInt(ind);
-    console.log("$PARANSindex", index);
-    console.log("$PARANSdataListssss", dataList);
     const goodsId = dataList[index].gid;
-    console.log("$PARANSgoodsId", goodsId);
     baseReq(`/goods/reference/${goodsId}`)
       .then(res => {
-        console.log("$PARANSres", res);
         this.setState({
           tableList: res.data
         });
@@ -182,7 +178,6 @@ export default class ProductDetail extends React.Component {
   };
 
   handleImg = key => {
-    console.log("$PARANSid", key);
     this.setState({
       ind: key
     });
@@ -205,7 +200,7 @@ export default class ProductDetail extends React.Component {
           goodsName: item.goodsName
         };
       });
-      imgContent = imgList.map((item, index) => {
+      imgContent = imgList.map((item, inde) => {
         return (
           <TabPane
             tab={
@@ -214,7 +209,7 @@ export default class ProductDetail extends React.Component {
                 {item.goodsName}
               </div>
             }
-            key={index}
+            key={inde}
           >
             <div className="bigImgTag">
               <div className="bigImgInt">
@@ -227,6 +222,7 @@ export default class ProductDetail extends React.Component {
           </TabPane>
         );
       });
+      console.log("$PARANSind", ind);
       imgContent = (
         <Tabs
           defaultActiveKey={ind}
@@ -240,10 +236,9 @@ export default class ProductDetail extends React.Component {
         </Tabs>
       );
     }
-    console.log("$PARANStableList", tableList);
     if (tableList.length > 0) {
-      tableContent = tableList.map((item, index) =>
-        <tr key={`tr-${index}`}>
+      tableContent = tableList.map((item, inde) =>
+        <tr key={`tr-${inde}`}>
           <td>
             {item.name}
           </td>
@@ -255,7 +250,6 @@ export default class ProductDetail extends React.Component {
           </td>
         </tr>
       );
-      console.log("$PARANStableContent", tableContent);
       tableContent.unshift(
         <tr key="head">
           <th>名称</th>
@@ -304,9 +298,9 @@ export default class ProductDetail extends React.Component {
                   </p>
                   <p>
                     {tableDetList.advantage && tableDetList.advantage.length > 0
-                      ? tableDetList.advantage.map((item, index) =>
-                          <span key={`advantage-${index}`} className="inlineP">
-                            {index + 1}、{item}
+                      ? tableDetList.advantage.map((item, inde) =>
+                          <span key={`advantage-${inde}`} className="inlineP">
+                            {inde + 1}、{item}
                           </span>
                         )
                       : null}
