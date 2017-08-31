@@ -7,64 +7,53 @@ import dataHoc from "web_modules/component/datas";
   return { data: response };
 })
 export default class Picture extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      info: 0
+    };
+  }
+
+  onClick = index => {
+    const ind = parseInt(index) + 1;
+    this.setState({
+      info: ind
+    });
+  };
+
   render() {
-    const data = this.props.data;
+    const data = this.props.data || [];
+    const liContent = [];
+    const { info } = this.state;
+    if (data.length > 0) {
+      data.map((item, index) => {
+        liContent.push(
+          <li
+            className="casePicLi"
+            key={index}
+            onClick={() => this.onClick(index)}
+          >
+            <p className="casePicItem">
+              {item.title}
+            </p>
+          </li>
+        );
+      });
+    }
     return (
       <div className="whiteContent">
         <p className="title">案例集锦-图片</p>
         <Row>
           <Col span={6}>
             <ul className="casePicUl">
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
-              <li className="casePicLi">
-                <p className="casePicItem">Smart 洗地机系列 应用案例</p>
-              </li>
+              {liContent}
             </ul>
           </Col>
           <Col span={18}>
             <div className="imgCon">
-              <img src={pic01} />
+              {data.length > 0 && data[info].infoUrl
+                ? <img src={data[info].infoUrl} />
+                : <div>暂无</div>}
             </div>
           </Col>
         </Row>

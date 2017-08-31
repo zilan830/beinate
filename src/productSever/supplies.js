@@ -641,7 +641,10 @@ export default class Supplies extends React.Component {
           }}
         >
           <div className="imgCon">
-            <img src={item.imgPath} />
+            <img
+              style={{ width: "100px", height: "auto" }}
+              src={item.imgPath}
+            />
           </div>
         </Col>
       );
@@ -673,7 +676,7 @@ export default class Supplies extends React.Component {
       <div className="productServerContainer">
         <p className="title">{`耗材-${name}系列`}</p>
         <div className="suppliesImgCons">
-          <Row className="suppliesImgCon" style={{ width: "1603px" }}>
+          <Row className="suppliesImgCon">
             {imgContent}
           </Row>
         </div>

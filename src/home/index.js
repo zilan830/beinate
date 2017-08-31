@@ -47,6 +47,7 @@ export default class Home extends React.Component {
       });
     baseReq("/cases/casesList/0/0/1")
       .then(res => {
+        console.log("$PARANSres", res);
         this.setState({
           caseInfo: res.data
         });
@@ -57,8 +58,8 @@ export default class Home extends React.Component {
   };
 
   render() {
-    console.log("data========", this.props.data);
     const { newInfo, caseInfo } = this.state;
+    console.log("$PARANScaseInfo", caseInfo);
     const content = newInfo.map((item, index) => {
       return (
         <li key={index} className="categoryLi">
@@ -186,18 +187,20 @@ export default class Home extends React.Component {
             <Col span={8} className="category">
               <p className="title">案例集锦</p>
               {caseInfo.length > 0
-                ? <Row className="categoryInner">
-                    <Col span={14} className="categoryImgCon">
-                      <div className="categoryImg">
-                        <img src={caseInfo.info_url} />
-                      </div>
-                    </Col>
-                    <Col span={10} className="categoryImgTitle">
-                      <div className="categoryText">
-                        {caseInfo.title}
-                      </div>
-                    </Col>
-                  </Row>
+                ? <Link to="/cases">
+                    <Row className="categoryInner">
+                      <Col span={14} className="categoryImgCon">
+                        <div className="categoryImg">
+                          <img src={caseInfo[0].infoUrl} />
+                        </div>
+                      </Col>
+                      <Col span={10} className="categoryImgTitle">
+                        <div className="categoryText">
+                          {caseInfo[0].title}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Link>
                 : null}
             </Col>
           </Row>
