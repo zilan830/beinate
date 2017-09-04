@@ -59,11 +59,10 @@ export default class Home extends React.Component {
 
   render() {
     const { newInfo, caseInfo } = this.state;
-    console.log("$PARANScaseInfo", caseInfo);
     const content = newInfo.map((item, index) => {
       return (
         <li key={index} className="categoryLi">
-          <Link className="categoryLink">
+          <Link className="categoryLink" to="/activity">
             <Row>
               <Col
                 span={18}

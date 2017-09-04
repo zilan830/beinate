@@ -15,12 +15,12 @@ export default class Video extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: 1
+      info: 0
     };
   }
 
   onClick = index => {
-    const ind = parseInt(index) + 1;
+    const ind = parseInt(index);
     this.setState({
       info: ind
     });

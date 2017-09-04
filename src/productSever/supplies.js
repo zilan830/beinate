@@ -1,53 +1,37 @@
 import React from "react";
 import { Row, Col } from "antd";
-import supplies1 from "web_modules/images/supplies1.jpg";
-import supplies2 from "web_modules/images/supplies2.jpg";
-import supplies3 from "web_modules/images/supplies3.jpg";
-import supplies4 from "web_modules/images/supplies4.jpg";
-import supplies5 from "web_modules/images/supplies5.jpg";
-import supplies6 from "web_modules/images/supplies6.jpg";
-import supplies7 from "web_modules/images/supplies7.jpg";
+import supplies2 from "web_modules/images/sp.png";
+import supplies3 from "web_modules/images/xd.png";
+import supplies4 from "web_modules/images/jt135.png";
+import supplies5 from "web_modules/images/xsdj1.png";
+import supplies7 from "web_modules/images/zp123.png";
 import supplies8 from "web_modules/images/supplies8.jpg";
 import supplies9 from "web_modules/images/supplies9.jpg";
-import bj1 from "web_modules/images/bj1.png";
-import bj2 from "web_modules/images/bj2.png";
-import bj3 from "web_modules/images/bj3.png";
-import bj4 from "web_modules/images/bj4.png";
+import bj1 from "web_modules/images/bj.png";
 import ds1 from "web_modules/images/ds1.png";
 import ds2 from "web_modules/images/ds2.png";
 import hc1 from "web_modules/images/hc1.png";
 import hc2 from "web_modules/images/hc2.png";
 import hc3 from "web_modules/images/hc3.png";
 import hc4 from "web_modules/images/hc4.png";
-import jt1 from "web_modules/images/jt1.png";
-import jt2 from "web_modules/images/jt2.png";
-import jt3 from "web_modules/images/jt3.png";
-import jt4 from "web_modules/images/jt4.png";
-import jt5 from "web_modules/images/jt5.png";
-import jt6 from "web_modules/images/jt6.png";
-import jt7 from "web_modules/images/jt7.png";
-import jt8 from "web_modules/images/jt8.png";
-import jt9 from "web_modules/images/jt9.png";
-import jt10 from "web_modules/images/jt10.png";
+import jt1 from "web_modules/images/jt135.png";
+import jt2 from "web_modules/images/jt246.png";
+import jt7 from "web_modules/images/jt79.png";
+import jt8 from "web_modules/images/jt810.png";
 import lz1 from "web_modules/images/lz1.png";
 import lz2 from "web_modules/images/lz2.png";
 import sb1 from "web_modules/images/sb1.png";
 import sb2 from "web_modules/images/sb2.png";
-import sp1 from "web_modules/images/sp1.png";
-import sp2 from "web_modules/images/sp2.png";
-import ts1 from "web_modules/images/ts1.png";
-import xd1 from "web_modules/images/xd1.png";
-import xd2 from "web_modules/images/xd2.png";
-import xd3 from "web_modules/images/xd3.png";
-import xd4 from "web_modules/images/xd4.png";
-import xd5 from "web_modules/images/xd5.png";
-import xs1 from "web_modules/images/xs1.png";
-import xs2 from "web_modules/images/xs2.png";
-import xs3 from "web_modules/images/xs3.png";
-import zp1 from "web_modules/images/zp1.png";
-import zp2 from "web_modules/images/zp2.png";
-import zp3 from "web_modules/images/zp3.png";
-import zp4 from "web_modules/images/zp4.png";
+import ts1 from "web_modules/images/ts.png";
+import xd1 from "web_modules/images/xds12.png";
+import xd3 from "web_modules/images/xds3.png";
+import xd4 from "web_modules/images/xds4.png";
+import xd5 from "web_modules/images/xds56.png";
+import xs1 from "web_modules/images/xsdj1.png";
+import xs2 from "web_modules/images/xsdj2.png";
+import xs3 from "web_modules/images/xsdj3.png";
+import zp1 from "web_modules/images/zp123.png";
+import zp4 from "web_modules/images/zp456.png";
 import zp5 from "web_modules/images/zp5.png";
 import zp6 from "web_modules/images/zp6.png";
 import zp7 from "web_modules/images/zp7.png";
@@ -56,7 +40,7 @@ import zp8 from "web_modules/images/zp8.png";
 const column = [
   {
     name: "百洁垫",
-    imgPath: supplies1,
+    imgPath: bj1,
     key: "bj",
     selected: true
   },
@@ -115,34 +99,34 @@ const column = [
 //洗地机
 const washColumn = [
   {
-    name: "洗地刷",
-    imgPath: xd1,
-    key: "xd",
+    name: "百洁垫",
+    imgPath: bj1,
+    key: "bj",
     selected: true
   },
   {
-    name: "百洁垫",
-    imgPath: supplies1,
-    key: "bj"
+    name: "洗地刷",
+    imgPath: supplies3,
+    key: "xd"
   },
   {
     name: "针盘",
-    imgPath: zp4,
+    imgPath: supplies7,
     key: "zp"
   },
   {
     name: "刷盘电机",
-    imgPath: sp1,
+    imgPath: supplies2,
     key: "sp"
   },
   {
     name: "吸水电机",
-    imgPath: xs1,
+    imgPath: supplies5,
     key: "xs"
   },
   {
     name: "胶条",
-    imgPath: jt1,
+    imgPath: supplies4,
     key: "jt"
   }
 ];
@@ -201,19 +185,19 @@ const bjColumn = [
     auto: "Hussar 660B、Ranger 660B、Clever 660BT"
   },
   {
-    photo: bj2,
+    photo: bj1,
     type: "",
     size: "15寸",
     auto: "Hussar 760B"
   },
   {
-    photo: bj3,
+    photo: bj1,
     type: "",
     size: "17寸",
     auto: "Hussar 860B、Smart 450B、Smart 450E"
   },
   {
-    photo: bj3,
+    photo: bj1,
     type: "",
     size: "20寸",
     auto: "Ranger 510B、Smart 510B、Clever 510B、Clever 510E、Clever 510BT"
@@ -222,13 +206,13 @@ const bjColumn = [
 
 const spColumn = [
   {
-    photo: sp1,
+    photo: supplies2,
     type: "700121",
     size: "650W",
     auto: "Smart 450B、Smart 510B、Clever 510B、Clever 510BT、Ranger 510B"
   },
   {
-    photo: sp2,
+    photo: supplies2,
     type: "700251,700241",
     size: "400W",
     auto: "Clever 660BT、Ranger 660B、Hussar 660B、Hussar 760B、Hussar 860B"
@@ -242,7 +226,7 @@ const xdColumn = [
     auto: "Hussar 660B、Ranger 660B、Clever 660BT"
   },
   {
-    photo: xd2,
+    photo: xd1,
     type: "242081",
     size: "15寸",
     auto: "Hussar 760B"
@@ -282,28 +266,28 @@ const jtColumn = [
     auto: "Smart 450B"
   },
   {
-    photo: jt3,
+    photo: jt1,
     type: "880753/250241/880750",
     size: "前/中/后",
     property: "普通",
     auto: "Smart 510B、Clever 510B、Clever 510BT"
   },
   {
-    photo: jt4,
+    photo: jt2,
     type: "880753/250231/880750",
     size: "前/中/后",
     property: "耐油",
     auto: "Smart 510B、Clever 510B、Clever 510BT"
   },
   {
-    photo: jt5,
+    photo: jt1,
     type: "860706/050201/860707",
     size: "前/中/后",
     property: "普通",
     auto: "Clever 660BT"
   },
   {
-    photo: jt6,
+    photo: jt2,
     type: "860706/250321/860707",
     size: "前/中/后",
     property: "耐油",
@@ -324,14 +308,14 @@ const jtColumn = [
     auto: "Ranger 660B,510B"
   },
   {
-    photo: jt9,
+    photo: jt7,
     type: "250381/250391",
     size: "前/后",
     property: "普通",
     auto: "Hussar 660,760,860"
   },
   {
-    photo: jt10,
+    photo: jt8,
     type: "250381/250401",
     size: "前/后",
     property: "耐油",
@@ -380,13 +364,13 @@ const zpColumn = [
     auto: "Hussar 660B、Ranger 660B、Clever 660BT"
   },
   {
-    photo: zp2,
+    photo: zp1,
     type: "240101",
     size: "15寸",
     auto: "Hussar 760B"
   },
   {
-    photo: zp3,
+    photo: zp1,
     type: "240111",
     size: "17寸",
     auto: "Hussar 860B"
@@ -398,7 +382,7 @@ const zpColumn = [
     auto: "Smart 450B、Smart 450E"
   },
   {
-    photo: zp5,
+    photo: zp4,
     type: "240071",
     size: "20寸",
     auto: "Ranger 510B、Smart 510B、Clever 510B、Clever 510E、Clever 510BT"
@@ -615,7 +599,7 @@ export default class Supplies extends React.Component {
   render() {
     const { type } = this.props;
     const { column, contentColumn } = this.state;
-    console.log("$PARANScolumn", column);
+    console.log("$PARANScolumn", column, contentColumn);
     let name = "";
     switch (type) {
       case "SuppliesWash":

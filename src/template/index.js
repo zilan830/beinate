@@ -72,10 +72,11 @@ class Template extends React.Component {
   }
 
   componentWillMount(nextProps) {
-    console.log("nextProps", nextProps);
+    console.log("nextProps.location", nextProps);
   }
 
   componentDidMount() {
+    console.log("$PARANSthis.props.location", this.props.location);
     const width = document.getElementById("en").clientWidth;
 
     const { column } = this.state;
@@ -89,13 +90,6 @@ class Template extends React.Component {
         break;
       }
     }
-    // for(let i=0; i<column.length; i++){
-    //   if(route.indexOf(column[i].key) > -1){
-    //     column[i].selected = true;
-    //   }else {
-    //     column[i].selected = false;
-    //   }
-    // }
     this.setState({
       column
     });
@@ -112,15 +106,6 @@ class Template extends React.Component {
         break;
       }
     }
-    //为了兼容ie9
-    // for(let i=0; i<column.length; i++){
-    //   if(column[i].key === key){
-    //     column[i].selected = true;
-    //   }else {
-    //     column[i].selected = false;
-    //   }
-    // }
-
     this.setState({
       column
     });

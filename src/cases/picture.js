@@ -15,7 +15,7 @@ export default class Picture extends React.Component {
   }
 
   onClick = index => {
-    const ind = parseInt(index) + 1;
+    const ind = parseInt(index);
     this.setState({
       info: ind
     });

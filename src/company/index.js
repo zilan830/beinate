@@ -4,6 +4,7 @@ import Concept from "./concept";
 import Evolution from "./evolution";
 import Honors from "./honors";
 import Publicity from "./publicity";
+import Com from "./company";
 import SmallNav from "web_modules/component/smallNav";
 
 const navColumn = [
@@ -23,6 +24,11 @@ const navColumn = [
         key: 11,
         name: "产品发展史",
         component: "Evolution"
+      },
+      {
+        key: 12,
+        name: "厂景厂貌",
+        component: "Company"
       }
     ]
   },
@@ -81,6 +87,7 @@ export default class Company extends React.Component {
           />
           {currentComponent === "About" ? <About /> : null}
           {currentComponent === "Evolution" ? <Evolution /> : null}
+          {currentComponent === "Company" ? <Com /> : null}
           {currentComponent === "Concept" ? <Concept /> : null}
           {currentComponent === "Honors" ? <Honors /> : null}
           {currentComponent === "Publicity" ? <Publicity /> : null}

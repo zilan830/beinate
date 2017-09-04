@@ -8,6 +8,20 @@
 @textBackColor: #363533;
 @borderColor1: #DCDCDC;
 
+//详情内容
+.newsDetInfo{
+.newsDetInfoContent{
+  >p{
+    color: @wordColor;
+    font-size: 14px;
+    line-height:20px;
+  }
+  >img{
+    margin: 30px 0;
+  }
+}
+}
+
 //template
 .container {
   .header {
@@ -782,7 +796,7 @@
       }
       tr {
         border-top: 1px solid @borderColor;
-        min-height: 110px;
+
         &:not(:first-child) {
           td {
             &:first-child {
@@ -814,6 +828,34 @@
   .imgContainerBorder {
     background-color: #F6F7F7;
     padding: 40px 0;
+    .comP{
+      font-size: 14px;
+      height: 40px;
+      font-weight:bold;
+      color: @wordColor;
+      position: relative;
+      &:before{
+        content:"";
+        display: block;
+        width: 100%;
+        height:1px;
+        background-color: @wordColor;
+        position: absolute;
+        top:50%;
+        left:0;
+      }
+      &:after{
+        content: attr(data-content);
+        line-height: 40px;
+        position: absolute;
+        display: block;
+        height: 40px;
+        padding: 0 10px;
+        background-color: #F6F7F7;
+        left: 50%;
+        margin-left: -31px;
+      }
+    }
     > img {
       width: 100%;
       height: auto;
@@ -833,16 +875,17 @@
     }
   }
   .concept01 {
-    background: url('./../images/10.png') no-repeat center center;
+    background: url('./../images/concept.jpg') no-repeat center center;
     max-width: 506px;
     height: 499px;
     background-size: 506px 499px;
   }
   .concept02 {
-    background: url('./../images/11.png') no-repeat top center;
+    margin-top: 40px;
+    background: url('./../images/concept1.jpg') no-repeat top center;
     max-width: 1013px;
-    height: 200px;
-    background-size: 1013px 303px;
+    height: 100px;
+    background-size: 1013px 100px;
   }
   .evolution01 {
     background: url('./../images/evolution@4x.png') no-repeat center center;
@@ -861,6 +904,11 @@
     max-width: 1013px;
     height: 747px;
     background-size: 1013px 747px;
+  }
+  .publicity{
+    max-width: 1013px;
+    height: auto;
+    border: 30px solid #353432;
   }
 }
 

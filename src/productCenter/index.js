@@ -56,11 +56,22 @@ export default class ProductCenter extends React.Component {
         });
       })
       .then(() => {
-        const height1 = document.getElementById("productImgCol1").clientHeight;
-        const height2 = document.getElementById("productImgCol2").clientHeight;
-        const height = height1 > height2 ? height1 : height2;
-        document.getElementById("productImgCol1").style.height = `${height}px`;
-        document.getElementById("productImgCol2").style.height = `${height}px`;
+        if (
+          document.getElementById("productImgCol1") &&
+          document.getElementById("productImgCol2")
+        ) {
+          const height1 = document.getElementById("productImgCol1")
+            .clientHeight;
+          const height2 = document.getElementById("productImgCol2")
+            .clientHeight;
+          const height = height1 > height2 ? height1 : height2;
+          document.getElementById(
+            "productImgCol1"
+          ).style.height = `${height}px`;
+          document.getElementById(
+            "productImgCol2"
+          ).style.height = `${height}px`;
+        }
       })
       .catch(err => {
         message.error(err);
@@ -76,10 +87,7 @@ export default class ProductCenter extends React.Component {
 
   componentDidMount() {
     const href = window.location.href;
-    console.log("$PARANShref", href);
-
     if (href.indexOf("sweeper") > -1) {
-      console.log("$PARANS");
       this.getData("2");
       this.setState({
         currentComponent: "2",
@@ -180,11 +188,9 @@ export default class ProductCenter extends React.Component {
 
   render() {
     const { currentComponent, dataList } = this.state;
-    console.log("$PARANSthis.state.breadColumn", this.state.breadColumn);
     let content = [];
     let itemName = "";
     if (dataList.length > 0) {
-      console.log("$dataList", dataList);
       switch (currentComponent) {
         case "1":
           itemName = "洗地机";
