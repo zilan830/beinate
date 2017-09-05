@@ -335,14 +335,7 @@ export default class ProductDetail extends React.Component {
               </TabPane>
               <TabPane tab="应用案例" key="4">
                 <div className="productDetIntCon">
-                  <video
-                    width="100%"
-                    height="100%"
-                    src={tableDetList.application}
-                    controls
-                  >
-                    Your browser does not support HTML5 video.
-                  </video>
+                  <img src={tableDetList.application} />
                 </div>
               </TabPane>
             </Tabs>
