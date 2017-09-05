@@ -21,13 +21,13 @@ const navColumn = [
       {
         key: 10,
         name: "smart系列",
-        component: "1",
+        component: "6",
         selected: true
       },
       {
         key: 11,
         name: "clever系列",
-        component: "2"
+        component: "5"
       },
       {
         key: 12,
@@ -42,7 +42,7 @@ const navColumn = [
       {
         key: 14,
         name: "dragoon系列",
-        component: "5"
+        component: "2"
       }
     ]
   },
@@ -54,7 +54,7 @@ const navColumn = [
       {
         key: 20,
         name: "tornado系列",
-        component: "6"
+        component: "1"
       }
     ]
   },

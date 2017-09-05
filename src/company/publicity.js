@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination } from "antd";
+import { Pagination, Icon } from "antd";
 import publicity from "web_modules/images/publicity.png";
 
 // let imgs = [];
@@ -18,7 +18,18 @@ export default class Publicity extends React.Component {
       index: page
     });
   };
-
+  onLeft = () => {
+    const { index } = this.state;
+    this.setState({
+      index: index - 1
+    });
+  };
+  onRight = () => {
+    const { index } = this.state;
+    this.setState({
+      index: index + 1
+    });
+  };
   render() {
     const { index } = this.state;
     return (
@@ -26,14 +37,28 @@ export default class Publicity extends React.Component {
         <div className="whiteContent">
           <p className="title">贝纳特宣传册 Brochure</p>
         </div>
-        <div className="imgContainer">
+        <div className="imgContainer publicImg">
+          <span
+            onClick={this.onLeft}
+            style={index === 1 ? { "pointer-events": "none" } : {}}
+            className="arrow left"
+          >
+            <Icon type="left" />
+          </span>
           <div className="publicity">
             <img src={`http://47.92.123.27:8888/xcc/${index}.jpg`} />
           </div>
+          <span
+            onClick={this.onRight}
+            style={index === 44 ? { "pointer-events": "none" } : {}}
+            className="arrow right"
+          >
+            <Icon type="right" />
+          </span>
           <Pagination
             style={{ textAlign: "center", marginTop: "10px" }}
-            size="small"
             total={440}
+            current={index}
             onChange={this.pageOnChange}
           />
         </div>

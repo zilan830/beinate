@@ -25,6 +25,41 @@
   }
 }
 
+//图片箭头
+.publicImg{
+  position:relative;
+  .arrow{
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255,255,255,0.4);
+    top:45%;
+    text-align: center;
+    cursor: hand;
+    cursor: pointer;
+    >i{
+      font-size: 80px;
+      line-height: 100px;
+      color: rgba(0,0,0,0.4);
+    }
+    &:hover{
+      background-color: rgba(255,255,255,0.6);
+      color: rgba(0,0,0,0.8);
+    }
+    &:active{
+      background-color: rgba(255,255,255,0.8);
+      color: rgba(0,0,0,0.8);
+    }
+    &.left{
+      left:30px;
+    }
+    &.right{
+      right:30px;
+    }
+  }
+}
+
 //template
 .container {
   .header {
@@ -624,6 +659,8 @@
       td, th {
         border-left: 1px solid #fff;
         padding: 9px 16px;
+        white-space: nowrap;
+        font-size: 14px;
       }
       th {
         color: #fff;
@@ -659,6 +696,19 @@
     margin-top: 70px;
     font-size: 13px;
     color: #4C4948;
+    &.mt30{
+      margin-top: 0;
+      margin-top: 30px;
+    }
+    .machineText{
+      font-size: 14px;
+      color: @wordColor;
+      line-height: 20px;
+      margin-bottom: 10px;
+      >span{
+        font-weight: bold;
+      }
+    }
     .warranty {
       color: #231815;
       line-height: 20px;

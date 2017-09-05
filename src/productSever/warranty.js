@@ -225,7 +225,14 @@ export default class Warranty extends React.Component {
               <p>件，并不包括由于使用不当管理不当引起的偶然的或间接的损坏。</p>
               <p className="mb20 ">本保修期代替所有其他明示或暗示的保证，也适用于最终用户和分销商。</p>
               <p className="textWeight">本保修期不适用于下列磨损件以及机械配件，其中包括：</p>
-              <table className="warrantyTable">
+              <table
+                className="warrantyTable"
+                style={
+                  this.props.type.slice(8) === "Ranger"
+                    ? { marginBottom: "55px" }
+                    : {}
+                }
+              >
                 <tr>
                   <th>零件号</th>
                   <th>名称</th>
