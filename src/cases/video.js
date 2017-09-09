@@ -1,11 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import pic01 from "web_modules/images/pic01.png";
 import dataHoc from "web_modules/component/datas";
-
-// const videos = {
-//   test: require("./1.mp4")
-// };
 
 @dataHoc({ url: "/cases/casesList/1/0/500" }, response => {
   console.log("$PARANSresponse", response);

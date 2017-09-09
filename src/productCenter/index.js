@@ -230,7 +230,7 @@ export default class ProductCenter extends React.Component {
                         <div className="productItemImgInt">
                           {i.model}
                           <span className="det">
-                            {i.power}m<sup className="sub1">2</sup>/h
+                            {i.power}
                           </span>
                         </div>
                       </div>
@@ -242,10 +242,7 @@ export default class ProductCenter extends React.Component {
             itContent.push(
               <div key={`item.menu2${index}`} className="productItem">
                 <p className="productType">
-                  {item.menu2.match(regex2)}{" "}
-                  <span>
-                    {item.menu2.match(regex1)}m<sup className="sub1">2</sup>/h
-                  </span>
+                  {item.menu2.match(regex2)} <span>{item.menu2}</span>
                 </p>
                 <Row gutter={24} className="productItemImgRow">
                   {iContent}

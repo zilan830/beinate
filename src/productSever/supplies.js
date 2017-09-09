@@ -81,7 +81,7 @@ const column = [
   },
   {
     name: "地刷",
-    imgPath: ds1,
+    imgPath: ds2,
     key: "ds"
   },
   {
@@ -135,7 +135,8 @@ const rubColumn = [
   {
     name: "边刷",
     imgPath: supplies8,
-    key: "bs"
+    key: "bs",
+    selected: true
   },
   {
     name: "滚刷",
@@ -148,7 +149,8 @@ const sweepColumn = [
   {
     name: "手套柄",
     imgPath: sb1,
-    key: "sb"
+    key: "sb",
+    selected: true
   },
   {
     name: "缓冲器",
@@ -162,7 +164,7 @@ const sweepColumn = [
   },
   {
     name: "地刷",
-    imgPath: ds1,
+    imgPath: ds2,
     key: "ds"
   },
   {
@@ -436,7 +438,7 @@ const hcColumn = [
 ];
 const dsColumn = [
   {
-    photo: ds1,
+    photo: ds2,
     type: "242011",
     size: "17寸",
     auto: "PX-170N、PX-170DS、PX-170、PX-170G、SPX-170N、SPX-170W、SPX-170DS、SPX-170"
@@ -497,12 +499,10 @@ export default class Supplies extends React.Component {
 
   componentDidMount() {
     const { type } = this.props;
-    console.log("$PARANSdididdd", type);
     this.setColumn(type);
   }
 
   componentWillReceiveProps(props) {
-    console.log("$PARANSprops", props);
     if (props.type !== this.props.type) {
       const type = props.type;
       this.setColumn(type);
@@ -510,23 +510,34 @@ export default class Supplies extends React.Component {
   }
 
   setColumn = type => {
-    console.log("$PARANS,......", type);
     switch (type) {
       case "SuppliesWash":
+        this.getKey(washColumn);
         this.setState({
           column: washColumn
         });
         break;
       case "SuppliesRub":
+        this.getKey(sweepColumn);
         this.setState({
           column: sweepColumn
         });
         break;
       case "SuppliesSweep":
+        this.getKey(rubColumn);
         this.setState({
           column: rubColumn
         });
         break;
+    }
+  };
+
+  getKey = column => {
+    for (const item of column) {
+      if ((item.selected = true)) {
+        this.handleOnClick(item.key);
+        break;
+      }
     }
   };
 
@@ -599,7 +610,6 @@ export default class Supplies extends React.Component {
   render() {
     const { type } = this.props;
     const { column, contentColumn } = this.state;
-    console.log("$PARANScolumn", column, contentColumn);
     let name = "";
     switch (type) {
       case "SuppliesWash":

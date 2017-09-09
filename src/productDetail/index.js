@@ -1,15 +1,8 @@
 import React from "react";
 import { Tabs, Row, Col, message } from "antd";
-import machine3 from "web_modules/images/machine3.png";
-import bannerImg1 from "web_modules/images/banner.jpg";
 import SmallNav from "web_modules/component/smallNav";
-//import vedio1 from "web_modules/vedio/1.mp4";
 import baseReq from "web_modules/api/base";
 const TabPane = Tabs.TabPane;
-
-const videos = {
-  test: require("./1.mp4")
-};
 
 const navColumn = [
   {
@@ -181,6 +174,7 @@ export default class ProductDetail extends React.Component {
     this.setState({
       ind: key
     });
+    this.getTable();
   };
 
   render() {
@@ -222,7 +216,6 @@ export default class ProductDetail extends React.Component {
           </TabPane>
         );
       });
-      console.log("$PARANSind", ind);
       imgContent = (
         <Tabs
           defaultActiveKey={ind}
