@@ -80,7 +80,7 @@ module.exports = {
       "process.env.NODE_ENV": JSON.stringify(env)
     }),
     new HtmlWebpackPlugin({
-      title: "Example",
+      title: "贝纳特",
       chunksSortMode: "dependency",
       template: path.resolve(__dirname, "./src/index.ejs")
     })

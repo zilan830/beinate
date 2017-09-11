@@ -43,12 +43,16 @@ export default class Merchants extends React.Component {
             </TabPane>
             <TabPane tab="加盟条件" key="2">
               <div className="productDetIntCon">
-                <p className="title">贝纳特品牌加盟条件</p>
-                <p className="sent pl38">1、 具有合法资格的企业或具有完全民事行为能力的自然人</p>
-                <p className="sent pl38">2、 认同贝纳特品牌经营理念及经营模式</p>
-                <p className="sent pl38">3、 遵守贝纳特的市场管理及销售价格政策</p>
-                <p className="sent pl38">4、 具有必要的营业面积及完整的组织架构</p>
-                <p className="sent pl38">5、 有本行业品牌管理及销售管理经验者优先考虑</p>
+                <div style={{ width: "324px", margin: "0 auto" }}>
+                  <p className="title" style={{ textAlign: "left" }}>
+                    贝纳特品牌加盟条件
+                  </p>
+                  <p className="sent">1、 具有合法资格的企业或具有完全民事行为能力的自然人</p>
+                  <p className="sent">2、 认同贝纳特品牌经营理念及经营模式</p>
+                  <p className="sent">3、 遵守贝纳特的市场管理及销售价格政策</p>
+                  <p className="sent">4、 具有必要的营业面积及完整的组织架构</p>
+                  <p className="sent">5、 有本行业品牌管理及销售管理经验者优先考虑</p>
+                </div>
               </div>
             </TabPane>
             <TabPane tab="加盟流程" key="3">
