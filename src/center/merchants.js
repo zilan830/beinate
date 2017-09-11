@@ -29,7 +29,7 @@ export default class Merchants extends React.Component {
                       <img src={center1} />
                     </div>
                   </Col>
-                  <Col span={12} className="pt50">
+                  <Col span={12} className="pt4vh">
                     <p className="sent">1、营销资源：不定期给代理商提供客户数据</p>
                     <p className="sent">2、售后培训：代理商可安排售后人员到工厂进行现场实习</p>
                     <p className="sent">3、 广告支持：厂商一体线上线下联动推广</p>

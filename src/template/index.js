@@ -171,7 +171,7 @@ class Template extends React.Component {
               </Link>
               <p>
                 <span>昆山市贝纳特机械设备有限公司</span>
-                <span>地址：昆山市季广北路119号</span>
+                <span>地址：江苏省昆山市千灯镇季广北路119号</span>
                 <span>
                   <a href="http://www.miibeian.gov.cn/" target="_blank">
                     苏IPC备11072808
