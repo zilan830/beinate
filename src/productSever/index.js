@@ -6,7 +6,7 @@ import Supplies from "./supplies";
 import Warranty from "./warranty";
 import Malfunction from "./malfunction";
 
-const breadColumn = ["产品中心", "洗地机系列"];
+const breadColumn = ["机器选型", "洗地机系列"];
 
 const span = {
   nav: 13,

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
 import busIcon from "web_modules/images/icLogo.png";
-import { Row, Col } from "antd";
+import { Row, Col, Radio } from "antd";
 import logoImg from "web_modules/images/logo.png";
+const RadioGroup = Radio.Group;
+const RadioButton = Radio.Button;
 
 class Template extends React.Component {
   // getChildContext() {
@@ -111,6 +113,10 @@ class Template extends React.Component {
     });
   }
 
+  onLanguageChange = () => {
+    window.location.href = "http://www.english.bntfloorcare.com";
+  };
+
   render() {
     const { column } = this.state;
     const navContent = column.map(item => {
@@ -146,6 +152,21 @@ class Template extends React.Component {
                 <span>者</span>
               </p>
               <p id="en">High-end Cleaning Machine Leader</p>
+            </div>
+            <div className="languageChangeCon">
+              <RadioGroup>
+                <RadioButton value="large" disabled>
+                  中文
+                </RadioButton>
+                <RadioButton
+                  value="large"
+                  onClick={() => {
+                    this.onLanguageChange();
+                  }}
+                >
+                  English
+                </RadioButton>
+              </RadioGroup>
             </div>
           </div>
         </header>

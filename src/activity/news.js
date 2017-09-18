@@ -120,7 +120,7 @@ export default class News extends React.Component {
         {list
           ? <Row className="whiteContent">
               <p className="title">
-                {type === "News" ? "企业新闻" : "展会风采"} News
+                {type === "News" ? "企业新闻 News" : "展会风采 Exhibition show"}
               </p>
               <Col span={12} className="mt10">
                 <Pagination
