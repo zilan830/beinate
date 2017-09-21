@@ -114,7 +114,7 @@ class Template extends React.Component {
   }
 
   onLanguageChange = () => {
-    window.location.href = "http://www.english.bntfloorcare.com";
+    window.location.href = "http://english.bntfloorcare.com";
   };
 
   render() {
