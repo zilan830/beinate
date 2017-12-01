@@ -12,4 +12,16 @@ apiList.testApi = data => {
   });
 };
 
+apiList.sendEmail = data => {
+  return ajax("/mail/send", data)
+    .then(data => {
+      console.log("$PARANSdata......", data);
+      return data;
+    })
+    .catch(err => {
+      console.log("$PARANSerr......", err);
+      throw err;
+    });
+};
+
 export default apiList;

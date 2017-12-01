@@ -109,42 +109,38 @@ export default class News extends React.Component {
           </div>
         );
       });
-      imgContent = (
-        <Carousel autoplay>
-          {imgContent}
-        </Carousel>
-      );
+      imgContent = <Carousel autoplay>{imgContent}</Carousel>;
     }
     return (
       <div>
-        {list
-          ? <Row className="whiteContent">
-              <p className="title">
-                {type === "News" ? "企业新闻 News" : "展会风采 Exhibition show"}
-              </p>
-              <Col span={12} className="mt10">
-                <Pagination
-                  size="small"
-                  total={count}
-                  onChange={(page, pageSize) => {
-                    this.onChange(page, pageSize);
-                  }}
-                />
-                <ul className="newsUl">
-                  {content}
-                </ul>
-              </Col>
-              <Col
-                span={12}
-                className="mt10"
-                style={{ paddingTop: "45px", height: "100%" }}
-              >
-                {imgContent}
-              </Col>
-            </Row>
-          : <Row className="whiteContent">
-              <NewDet type={type} id={1} data={data} />
-            </Row>}
+        {list ? (
+          <Row className="whiteContent">
+            <p className="title">
+              {type === "News" ? "企业新闻 News" : "展会风采 Exhibition show"}
+            </p>
+            <Col span={12} className="mt10">
+              <Pagination
+                size="small"
+                total={count}
+                onChange={(page, pageSize) => {
+                  this.onChange(page, pageSize);
+                }}
+              />
+              <ul className="newsUl">{content}</ul>
+            </Col>
+            <Col
+              span={12}
+              className="mt10 newsImgCar"
+              style={{ paddingTop: "45px", height: "100%" }}
+            >
+              {imgContent}
+            </Col>
+          </Row>
+        ) : (
+          <Row className="whiteContent">
+            <NewDet type={type} id={1} data={data} />
+          </Row>
+        )}
       </div>
     );
   }

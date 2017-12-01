@@ -22,28 +22,23 @@ export default class Authorization extends React.Component {
               <span>
                 {ind + 1}、{it.company}
               </span>
-              <span>
-                {it.area}
-              </span>
+              <span>{it.area}</span>
             </p>
           );
         });
       }
       return (
         <div key={`item-${index}`} className="authItem">
-          <p className="area">
-            {item.areaName}
-          </p>
-          {list}
+          <p className="area">{item.areaName}</p>
+          {/*{list}*/}
+          <p className="areaItem" />
         </div>
       );
     });
     return (
       <div className="whiteContent">
         <p className="title">授权服务中心</p>
-        <div className="authCon">
-          {content}
-        </div>
+        <div className="authCon">{content}</div>
       </div>
     );
   }

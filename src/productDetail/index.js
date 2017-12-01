@@ -83,10 +83,10 @@ export default class ProductDetail extends React.Component {
     this.state = {
       currentComponent: "1",
       navColumn,
-      ind: 0,
       tableList: [],
       dataList: []
     };
+    this.ind = 0;
   }
 
   componentDidMount() {
@@ -103,9 +103,7 @@ export default class ProductDetail extends React.Component {
     } else {
       this.renderSelect(2, type);
     }
-    this.setState({
-      ind
-    });
+    this.ind = parseInt(ind);
     this.getData(type);
   }
 
@@ -152,12 +150,13 @@ export default class ProductDetail extends React.Component {
     this.setState({
       currentComponent: component
     });
+    this.ind = 0;
     this.getData(component);
   };
 
   getTable = () => {
-    const { dataList, ind } = this.state;
-    const index = parseInt(ind);
+    const { dataList } = this.state;
+    const index = parseInt(this.ind);
     const goodsId = dataList[index].gid;
     baseReq(`/goods/reference/${goodsId}`)
       .then(res => {
@@ -171,14 +170,13 @@ export default class ProductDetail extends React.Component {
   };
 
   handleImg = key => {
-    this.setState({
-      ind: key
-    });
+    this.ind = parseInt(key);
     this.getTable();
   };
 
   render() {
-    const { dataList, tableList, ind } = this.state;
+    const { dataList, tableList } = this.state;
+    const ind = this.ind;
     let imgContent = [];
     let tableContent = [];
     let tableDetList = [];
@@ -206,9 +204,7 @@ export default class ProductDetail extends React.Component {
             key={inde}
           >
             <div className="bigImgTag">
-              <div className="bigImgInt">
-                {item.goodsName}
-              </div>
+              <div className="bigImgInt">{item.goodsName}</div>
               <div className="bigImgCon">
                 <img src={item.imgUrl} />
               </div>
@@ -218,7 +214,7 @@ export default class ProductDetail extends React.Component {
       });
       imgContent = (
         <Tabs
-          defaultActiveKey={ind}
+          activeKey={`${ind}`}
           tabPosition="right"
           style={{ height: 400 }}
           onChange={key => {
@@ -230,26 +226,18 @@ export default class ProductDetail extends React.Component {
       );
     }
     if (tableList.length > 0) {
-      tableContent = tableList.map((item, inde) =>
+      tableContent = tableList.map((item, inde) => (
         <tr key={`tr-${inde}`}>
-          <td>
-            {item.name}
-          </td>
-          <td>
-            {item.item}
-          </td>
-          <td>
-            {item.value}
-          </td>
+          <td>{item.name}</td>
+          <td>{item.item}</td>
+          <td>{item.value}</td>
         </tr>
-      );
+      ));
       tableContent.unshift(
         <tr key="head">
           <th>名称</th>
           <th>Name</th>
-          <th>
-            {Name}
-          </th>
+          <th>{Name}</th>
         </tr>
       );
     }
@@ -263,9 +251,7 @@ export default class ProductDetail extends React.Component {
             change={this.onClick}
           />
 
-          <div className="productImgShow">
-            {imgContent}
-          </div>
+          <div className="productImgShow">{imgContent}</div>
 
           <div className="productDetInt">
             <Tabs defaultActiveKey="1">
@@ -291,40 +277,38 @@ export default class ProductDetail extends React.Component {
                   </p>
                   <p>
                     {tableDetList.advantage && tableDetList.advantage.length > 0
-                      ? tableDetList.advantage.map((item, inde) =>
+                      ? tableDetList.advantage.map((item, inde) => (
                           <span key={`advantage-${inde}`} className="inlineP">
                             {inde + 1}、{item}
                           </span>
-                        )
+                        ))
                       : null}
                   </p>
                 </div>
               </TabPane>
               <TabPane tab="技术参数" key="2">
                 <div className="productDetIntCon">
-                  <table className="productDetIntTable">
-                    {tableContent}
-                  </table>
+                  <table className="productDetIntTable">{tableContent}</table>
                 </div>
               </TabPane>
               <TabPane tab="操作讲解" key="3">
-                {tableDetList.videoUrl
-                  ? <div className="productDetIntCon">
-                      <video
-                        width="100%"
-                        height="100%"
-                        src={tableDetList.videoUrl}
-                        controls
-                      >
-                        Your browser does not support HTML5 video.
-                      </video>
-                    </div>
-                  : null}
-                {tableDetList.instruction
-                  ? <div className="productDetIntCon">
-                      <img src={tableDetList.instruction} />
-                    </div>
-                  : null}
+                {tableDetList.videoUrl ? (
+                  <div className="productDetIntCon">
+                    <video
+                      width="100%"
+                      height="100%"
+                      src={tableDetList.videoUrl}
+                      controls
+                    >
+                      Your browser does not support HTML5 video.
+                    </video>
+                  </div>
+                ) : null}
+                {tableDetList.instruction ? (
+                  <div className="productDetIntCon">
+                    <img src={tableDetList.instruction} />
+                  </div>
+                ) : null}
               </TabPane>
               <TabPane tab="应用案例" key="4">
                 <div className="productDetIntCon">
