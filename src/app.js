@@ -13,7 +13,7 @@ import ProductDetail from "./productDetail";
 import "normalize.css";
 import "./web_modules/style/style.less";
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <Router history={hashHistory}>
@@ -33,5 +33,3 @@ class App extends React.Component {
     );
   }
 }
-
-module.exports = App;
