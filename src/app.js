@@ -1,21 +1,17 @@
-const React = require("react");
-const ReactRouter = require("react-router");
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const hashHistory = ReactRouter.hashHistory;
-const IndexRedirect = ReactRouter.IndexRedirect;
-const Template = require("./template");
-const Activity = require("./activity");
-const Cases = require("./cases");
-const Center = require("./center");
-const Company = require("./company");
-const Contact = require("./contact");
-const Home = require("./home");
-const ProductCenter = require("./productCenter");
-const ProductSever = require("./productSever");
-const ProductDetail = require("./productDetail");
-require("normalize.css");
-require("./web_modules/style/style.less");
+import React from "react";
+import { Router, Route, hashHistory, IndexRedirect } from "react-router";
+import Template from "./template";
+import Activity from "./activity";
+import Cases from "./cases";
+import Center from "./center";
+import Company from "./company";
+import Contact from "./contact";
+import Home from "./home";
+import ProductCenter from "./productCenter";
+import ProductSever from "./productSever";
+import ProductDetail from "./productDetail";
+import "normalize.css";
+import "./web_modules/style/style.less";
 
 class App extends React.Component {
   render() {
