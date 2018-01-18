@@ -18,19 +18,25 @@ export default class Authorization extends React.Component {
       if (item.hasOwnProperty("child")) {
         item.child.map((it, ind) => {
           list.push(
-            <p key={`it-${ind}`} className="areaItem">
-              <span>
-                {ind + 1}、{it.company}
-              </span>
-              <span>{it.area}</span>
-            </p>
+            <div key={`it-${ind}`}>
+              <p className="areaItem">
+                <span>
+                  {ind + 1}、{it.company}
+                </span>
+                <span>{it.area}</span>
+              </p>
+              <p className="areaItem">
+                <span>{it.address}</span>
+                <span>{it.phone}</span>
+              </p>
+            </div>
           );
         });
       }
       return (
         <div key={`item-${index}`} className="authItem">
           <p className="area">{item.areaName}</p>
-          {/*{list}*/}
+          {list}
           <p className="areaItem" />
         </div>
       );

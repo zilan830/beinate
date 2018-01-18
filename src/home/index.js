@@ -5,6 +5,7 @@ import bannerImg1 from "web_modules/images/banner1.jpg";
 import bannerImg2 from "web_modules/images/banner2.jpg";
 import bannerImg3 from "web_modules/images/banner3.jpg";
 import bannerImg4 from "web_modules/images/banner4.jpg";
+import bannerImg5 from "web_modules/images/banner5.jpg";
 import machine1 from "web_modules/images/machine1.png";
 import machine2 from "web_modules/images/machine2.png";
 import machine3 from "web_modules/images/machine3.png";
@@ -91,7 +92,10 @@ export default class Home extends React.Component {
     return (
       <div className="homeContainer">
         <div className="bannerContainer">
-          <Carousel autoplay>
+          <Carousel>
+            <div>
+              <img src={bannerImg5} />
+            </div>
             <div>
               <img src={bannerImg1} />
             </div>
@@ -180,29 +184,25 @@ export default class Home extends React.Component {
             <Col span={8} className="category">
               <p className="title">新闻动态</p>
               <div className="categoryInner">
-                <ul className="categoryUl">
-                  {content}
-                </ul>
+                <ul className="categoryUl">{content}</ul>
               </div>
             </Col>
             <Col span={8} className="category">
               <p className="title">案例集锦</p>
-              {caseInfo.length > 0
-                ? <Link to="/cases">
-                    <Row className="categoryInner">
-                      <Col span={14} className="categoryImgCon">
-                        <div className="categoryImg">
-                          <img src={caseInfo[0].infoUrl} />
-                        </div>
-                      </Col>
-                      <Col span={10} className="categoryImgTitle">
-                        <div className="categoryText">
-                          {caseInfo[0].title}
-                        </div>
-                      </Col>
-                    </Row>
-                  </Link>
-                : null}
+              {caseInfo.length > 0 ? (
+                <Link to="/cases">
+                  <Row className="categoryInner">
+                    <Col span={14} className="categoryImgCon">
+                      <div className="categoryImg">
+                        <img src={caseInfo[0].infoUrl} />
+                      </div>
+                    </Col>
+                    <Col span={10} className="categoryImgTitle">
+                      <div className="categoryText">{caseInfo[0].title}</div>
+                    </Col>
+                  </Row>
+                </Link>
+              ) : null}
             </Col>
           </Row>
         </div>

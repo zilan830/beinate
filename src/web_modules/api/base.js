@@ -7,7 +7,7 @@ export default (url, data) => {
   return axios({
     method: "post",
     url,
-    // url: `http://47.92.123.27:80${url}`,
+    //url: `http://47.92.123.27:80${url}`,
     data
   })
     .then(res => {

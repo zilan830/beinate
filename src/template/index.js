@@ -114,7 +114,9 @@ class Template extends React.Component {
   }
 
   onLanguageChange = () => {
-    window.location.href = "http://english.bntfloorcare.com";
+    const url = window.location.href;
+    const newUrl = url.replace(/www/, "english").match(/(\S*)com/)[0];
+    window.location.href = newUrl;
   };
 
   render() {
@@ -128,9 +130,7 @@ class Template extends React.Component {
             this.onClick(item.key);
           }}
         >
-          <Link to={item.path}>
-            {item.name}
-          </Link>
+          <Link to={item.path}>{item.name}</Link>
         </Col>
       );
     });
@@ -171,13 +171,9 @@ class Template extends React.Component {
           </div>
         </header>
         <nav className="navigation">
-          <Row className="navInnerContainer">
-            {navContent}
-          </Row>
+          <Row className="navInnerContainer">{navContent}</Row>
         </nav>
-        <div className="content">
-          {this.props.children}
-        </div>
+        <div className="content">{this.props.children}</div>
         <footer className="footer">
           <Row className="footCon">
             <Col span={20} className="footLink">
